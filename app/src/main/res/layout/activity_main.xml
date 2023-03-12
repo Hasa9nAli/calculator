@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidLineOfNumberConstraint"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="-29dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/appCompatButton2"
@@ -272,6 +272,7 @@
             android:layout_marginTop="16dp"
             android:text="D"
 
+            app:layout_constraintBottom_toBottomOf="@+id/EButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/EButton"
             app:layout_constraintTop_toBottomOf="@+id/CButton" />
@@ -304,14 +305,16 @@
             android:layout_height="0dp"
             android:text="="
             app:layout_constraintBottom_toBottomOf="@+id/ThreeButton"
-            app:layout_constraintTop_toTopOf="@+id/SixButton"
-            tools:layout_editor_absoluteX="15dp" />
+            app:layout_constraintEnd_toStartOf="@+id/ThreeButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/SixButton" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/DotButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:text="."
+            app:layout_constraintBottom_toBottomOf="@+id/ZeroButton"
             app:layout_constraintEnd_toStartOf="@+id/ZeroButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ZeroButton" />
