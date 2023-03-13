@@ -35,6 +35,7 @@
         tools:ignore="HardcodedText,RtlHardcoded" />
 
     <TextView
+        android:id="@+id/numberResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
@@ -44,7 +45,7 @@
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IDtextDefaultOfNumberInputInTop"
-        />
+         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,8 +53,8 @@
         android:background="#EE151515"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidLineOfNumberConstraint"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="-29dp">
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/appCompatButton2"
@@ -103,7 +104,7 @@
             android:id="@+id/appCompatButton5"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:text="C"
+            android:text="X"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton4"
@@ -115,7 +116,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
-            android:text="DEL"
+            android:text="CLR"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton2"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton2"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton2" />
@@ -202,15 +203,7 @@
             app:layout_constraintStart_toStartOf="@+id/SixButton"
             app:layout_constraintTop_toBottomOf="@+id/SixButton" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ThreeButton"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:text="3"
-            app:layout_constraintEnd_toEndOf="@+id/SixButton"
-            app:layout_constraintStart_toStartOf="@+id/SixButton"
-            app:layout_constraintTop_toBottomOf="@+id/SixButton" />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/TwoButton"
@@ -305,9 +298,8 @@
             android:layout_height="0dp"
             android:text="="
             app:layout_constraintBottom_toBottomOf="@+id/ThreeButton"
-            app:layout_constraintEnd_toStartOf="@+id/ThreeButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/SixButton" />
+            app:layout_constraintTop_toTopOf="@+id/SixButton"
+            tools:layout_editor_absoluteX="15dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/DotButton"
