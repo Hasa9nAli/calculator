@@ -38,6 +38,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+    private fun clearTextView(textField : TextView){
+        textField.text = ""
+    }
+    private fun disabled(vararg buttonOfNumbers : Button){
+        buttonOfNumbers.map {it.isEnabled = false}
+    }
+    private fun enabled(vararg buttonOfNumbers: Button){
+        buttonOfNumbers.map {it.isEnabled = true}
+    }
+
+    private clickedToButtonOfNumberSystem(){
+        // do something
+    }
     private fun initAllElemnt(){
            zeroButton = findViewById(R.id.ZeroButton)
            oneButton  = findViewById(R.id.OneButton)
@@ -66,6 +80,6 @@ class MainActivity : AppCompatActivity() {
            numberWrittenTextView = findViewById(R.id.numberResult)
            resultNumberTextView  = findViewById(R.id.IDtextDefaultOfNumberInputInTop)
     }
-    
+
 
 }
