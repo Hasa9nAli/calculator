@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import java.math.BigInteger
 import java.util.*
 
@@ -57,6 +58,10 @@ class MainActivity : AppCompatActivity() {
             isHexButtonClicked = false
             isDecimalButtonClicked = false
             isOctButtonClicked = false
+            backColorBackground(octButton)
+            backColorBackground(decButton)
+            backColorBackground(binButton)
+            backColorBackground(hexButton)
         }
         removeButton.setOnClickListener {
             if(numberWrittenTextView.text.toString().length >=1)
@@ -82,25 +87,33 @@ class MainActivity : AppCompatActivity() {
      fun clickedToButtonOfNumberSystem(buttonOfNumberSystem : View){
         when((buttonOfNumberSystem as Button).text.toString()){
             "HEX" -> {enabled(listOfHexButton)
+                uploadBackground((buttonOfNumberSystem as Button))
                 isHexButtonClicked = true
                 if(isHexButtonClicked && isDecimalButtonClicked){
                     resultNumberTextView.text =  convertDecimalToHex(numberWrittenTextView.text.toString())
                     isHexButtonClicked = false
                     isDecimalButtonClicked = false
+                    backColorBackground(hexButton)
+                    backColorBackground(decButton)
                 }
                 if(isHexButtonClicked && isBinButtonClicked){
                     resultNumberTextView.text = convertBinaryToHex(numberWrittenTextView.text.toString())
                     isHexButtonClicked = false
                     isBinButtonClicked = false
+                    backColorBackground(hexButton)
+                    backColorBackground(binButton)
                 }
                 if(isHexButtonClicked && isOctButtonClicked){
                     resultNumberTextView.text = convertOctalToHex(numberWrittenTextView.text.toString())
                     isHexButtonClicked = false
                     isOctButtonClicked = false
+                    backColorBackground(hexButton)
+                    backColorBackground(octButton)
                 }
 
             }
             "DEC" -> {
+                uploadBackground((buttonOfNumberSystem as Button))
                 disabled(listOfHexButton)
                 enabled(listOfDecimalButton)
                 isDecimalButtonClicked = true
@@ -108,20 +121,27 @@ class MainActivity : AppCompatActivity() {
                     resultNumberTextView.text = convertHexToDecimal(numberWrittenTextView.text.toString())
                     isHexButtonClicked = false
                     isDecimalButtonClicked = false
+                    backColorBackground(decButton)
+                    backColorBackground(hexButton)
                 }
                 if(isDecimalButtonClicked && isBinButtonClicked) {
                     resultNumberTextView.text = convertBinaryToDecimal(numberWrittenTextView.text.toString())
                     isDecimalButtonClicked = false
                     isBinButtonClicked = false
+                    backColorBackground(decButton)
+                    backColorBackground(binButton)
                 }
                 if(isDecimalButtonClicked && isOctButtonClicked){
                     resultNumberTextView.text = convertOctalToDecimal(numberWrittenTextView.text.toString())
                     isDecimalButtonClicked = false
                     isOctButtonClicked = false
+                    backColorBackground(decButton)
+                    backColorBackground(octButton)
                 }
 
             }
             "OCT" -> {
+                uploadBackground((buttonOfNumberSystem as Button))
                 disabled(listOfHexButton)
                 enabled(listOfOctalButton)
                 isOctButtonClicked = true
@@ -129,39 +149,61 @@ class MainActivity : AppCompatActivity() {
                     resultNumberTextView.text = convertDecimalToOctal(numberWrittenTextView.text.toString())
                     isOctButtonClicked = false
                     isDecimalButtonClicked = false
+                    backColorBackground(octButton)
+                    backColorBackground(decButton)
                 }
                 if(isOctButtonClicked && isHexButtonClicked){
                     resultNumberTextView.text = convertHexToOctal(numberWrittenTextView.text.toString())
                     isOctButtonClicked = false
                     isHexButtonClicked = false
+                    backColorBackground(octButton)
+                    backColorBackground(hexButton)
                 }
                 if(isOctButtonClicked && isBinButtonClicked){
                     resultNumberTextView.text = convertBinaryToOctal(numberWrittenTextView.text.toString())
                     isOctButtonClicked = false
                     isHexButtonClicked = false
+                    backColorBackground(octButton)
+                    backColorBackground(binButton)
                 }
             }
             "BIN" -> {
+                uploadBackground((buttonOfNumberSystem as Button))
                 isBinButtonClicked = true
                 disabled(listOfHexButton)
                 enabled(lisrOfBinaryButton)
                 if(isBinButtonClicked && isDecimalButtonClicked){
                     resultNumberTextView.text = convertDecimalToBinary(numberWrittenTextView.text.toString())
+                    backColorBackground(binButton)
+                    backColorBackground(decButton)
                     isBinButtonClicked = false
                     isDecimalButtonClicked = false
+                    backColorBackground(binButton)
+                    backColorBackground(decButton)
                 }
                 if(isBinButtonClicked && isHexButtonClicked){
                     resultNumberTextView.text = convertHexToBinary(numberWrittenTextView.text.toString())
                     isBinButtonClicked = false
                     isHexButtonClicked = false
+                    backColorBackground(binButton)
+                    backColorBackground(hexButton)
                 }
                 if(isBinButtonClicked && isOctButtonClicked){
                     resultNumberTextView.text = convertOctalToBinary(numberWrittenTextView.text.toString())
                     isBinButtonClicked = false
                     isOctButtonClicked = false
+                    backColorBackground(binButton)
+                    backColorBackground(octButton)
                 }
             }
         }
+    }
+    private fun uploadBackground(button : Button){
+        button.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+    }
+    private fun backColorBackground (button: Button){
+        button.setBackgroundColor(ContextCompat.getColor(this, R.color.normal));
+
     }
 
     // start the conversion functionality
@@ -226,7 +268,7 @@ class MainActivity : AppCompatActivity() {
         val decimal = BigInteger(input, 8)
         return decimal.toString(16)
     }
-
+// end convert
 
     private fun initialAllElemntOfCalculator(){
            zeroButton = findViewById(R.id.ZeroButton)
