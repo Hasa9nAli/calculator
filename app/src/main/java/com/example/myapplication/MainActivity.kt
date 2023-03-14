@@ -45,12 +45,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initialAllElemntOfCalculator()
 
+        clearButton.setOnClickListener {
+            clearTextView(numberWrittenTextView)
+            clearTextView(resultNumberTextView)
+        }
+        removeButton.setOnClickListener {
+            if(numberWrittenTextView.text.toString().length >=1)
+                numberWrittenTextView.text = numberWrittenTextView.text.toString().dropLast(1)
+        }
+
     }
-//    private fun callBackButton(buttonOfNumber : Button){
-//        buttonOfNumber.setOnClickListener {
-//            clickedToButtonOfNumberSystem(buttonOfNumber)
-//        }
-//    }
+
     private fun clearTextView(textField : TextView){ textField.text = "" }
     private fun disabled(buttonOfNumbers : List<Button>){ buttonOfNumbers.map {it.isEnabled = false} }
     private fun enabled(buttonOfNumbers: List<Button>){ buttonOfNumbers.map {it.isEnabled = true} }
@@ -58,10 +63,10 @@ class MainActivity : AppCompatActivity() {
     // this method call (invoke) in XML -> [activity_main.xml] file on all number button
      fun onClickNumber(buttonClicked : View){
         if(numberWrittenTextView.text.toString() == "0")  this.clearTextView(numberWrittenTextView)
-        var newDigigt = (buttonClicked as Button).text
-        var oldDigit = numberWrittenTextView.text.toString()
-        var addDigitToEnd = oldDigit + newDigigt
-        var newNumber = addDigitToEnd
+        val newDigigt = (buttonClicked as Button).text
+        val oldDigit = numberWrittenTextView.text.toString()
+        val addDigitToEnd = oldDigit + newDigigt
+        val newNumber = addDigitToEnd
         numberWrittenTextView.text = newNumber
 
     }
