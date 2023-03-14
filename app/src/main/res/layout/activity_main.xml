@@ -60,7 +60,8 @@
             android:id="@+id/appCompatButton2"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:text="Hex"
+            android:text="HEX"
+            android:onClick="clickedToButtonOfNumberSystem"
             app:layout_constraintEnd_toStartOf="@+id/appCompatButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +72,8 @@
             android:id="@+id/appCompatButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:text="Dec"
+            android:text="DEC"
+            android:onClick="clickedToButtonOfNumberSystem"
             app:layout_constraintEnd_toStartOf="@+id/appCompatButton3"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
@@ -82,7 +84,8 @@
             android:id="@+id/appCompatButton3"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:text="Bin"
+            android:text="BIN"
+            android:onClick="clickedToButtonOfNumberSystem"
             app:layout_constraintEnd_toStartOf="@+id/appCompatButton4"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton"
@@ -94,6 +97,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:text="OCT"
+            android:onClick="clickedToButtonOfNumberSystem"
             app:layout_constraintEnd_toStartOf="@+id/appCompatButton5"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton3"
@@ -108,7 +112,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton4"
-            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteY="0dp" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -127,6 +130,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="7"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton"
@@ -138,6 +142,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="8"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton3"
@@ -149,6 +154,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="9"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton4"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton4"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton4" />
@@ -159,6 +165,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="A"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton5"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton5"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton5" />
@@ -169,6 +176,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="6"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/SevenButton"
             app:layout_constraintStart_toStartOf="@+id/SevenButton"
             app:layout_constraintTop_toBottomOf="@+id/SevenButton" />
@@ -179,6 +187,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="5"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/EightButton"
             app:layout_constraintStart_toStartOf="@+id/EightButton"
             app:layout_constraintTop_toBottomOf="@+id/EightButton" />
@@ -189,6 +198,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="4"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/NineButton"
             app:layout_constraintStart_toStartOf="@+id/NineButton"
             app:layout_constraintTop_toBottomOf="@+id/NineButton" />
@@ -199,6 +209,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="3"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/SixButton"
             app:layout_constraintStart_toStartOf="@+id/SixButton"
             app:layout_constraintTop_toBottomOf="@+id/SixButton" />
@@ -211,6 +222,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="2"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/FiveButton"
             app:layout_constraintStart_toStartOf="@+id/FiveButton"
             app:layout_constraintTop_toBottomOf="@+id/FiveButton" />
@@ -221,6 +233,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="1"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/FourButton"
             app:layout_constraintStart_toStartOf="@+id/FourButton"
             app:layout_constraintTop_toBottomOf="@+id/FourButton" />
@@ -231,6 +244,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="0"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="@+id/ThreeButton"
             app:layout_constraintStart_toStartOf="@+id/ThreeButton"
             app:layout_constraintTop_toBottomOf="@+id/ThreeButton" />
@@ -242,6 +256,7 @@
             android:layout_marginStart="14dp"
             android:layout_marginTop="16dp"
             android:text="B"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/FourButton"
@@ -253,7 +268,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="C"
-
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/OneButton"
             app:layout_constraintTop_toBottomOf="@+id/BButton" />
@@ -264,7 +279,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="D"
-
+            android:onClick="onClickNumber"
             app:layout_constraintBottom_toBottomOf="@+id/EButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/EButton"
@@ -276,6 +291,8 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="E"
+            android:onClick="onClickNumber"
+
             app:layout_constraintEnd_toEndOf="@+id/OneButton"
             app:layout_constraintStart_toStartOf="@+id/OneButton"
             app:layout_constraintTop_toBottomOf="@+id/OneButton" />
@@ -288,6 +305,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:text="F"
+            android:onClick="onClickNumber"
             app:layout_constraintEnd_toStartOf="@+id/EButton"
             app:layout_constraintStart_toEndOf="@+id/ZeroButton"
             app:layout_constraintTop_toBottomOf="@+id/TwoButton" />
@@ -298,8 +316,9 @@
             android:layout_height="0dp"
             android:text="="
             app:layout_constraintBottom_toBottomOf="@+id/ThreeButton"
-            app:layout_constraintTop_toTopOf="@+id/SixButton"
-            tools:layout_editor_absoluteX="15dp" />
+            app:layout_constraintEnd_toStartOf="@+id/SixButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/SixButton" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/DotButton"

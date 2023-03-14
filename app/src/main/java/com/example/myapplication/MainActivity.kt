@@ -1,13 +1,14 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import java.io.BufferedReader
+
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var zeroButton : Button
     lateinit var oneButton : Button
     lateinit var twoButton : Button
@@ -34,25 +35,54 @@ class MainActivity : AppCompatActivity() {
     lateinit var clearButton : Button
     lateinit var numberWrittenTextView : TextView
     lateinit var resultNumberTextView : TextView
+    lateinit var listOfHexButton : List<Button>
+    lateinit var listOfDecimalButton : List<Button>
+    lateinit var listOfOctalButton : List<Button>
+    lateinit var lisrOfBinaryButton : List<Button>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
+        initialAllElemntOfCalculator()
 
-    private fun clearTextView(textField : TextView){
-        textField.text = ""
     }
-    private fun disabled(vararg buttonOfNumbers : Button){
-        buttonOfNumbers.map {it.isEnabled = false}
-    }
-    private fun enabled(vararg buttonOfNumbers: Button){
-        buttonOfNumbers.map {it.isEnabled = true}
-    }
+//    private fun callBackButton(buttonOfNumber : Button){
+//        buttonOfNumber.setOnClickListener {
+//            clickedToButtonOfNumberSystem(buttonOfNumber)
+//        }
+//    }
+    private fun clearTextView(textField : TextView){ textField.text = "" }
+    private fun disabled(buttonOfNumbers : List<Button>){ buttonOfNumbers.map {it.isEnabled = false} }
+    private fun enabled(buttonOfNumbers: List<Button>){ buttonOfNumbers.map {it.isEnabled = true} }
 
-    private clickedToButtonOfNumberSystem(){
-        // do something
+    // this method call (invoke) in XML -> [activity_main.xml] file on all number button
+     fun onClickNumber(buttonClicked : View){
+        if(numberWrittenTextView.text.toString() == "0")  this.clearTextView(numberWrittenTextView)
+        var newDigigt = (buttonClicked as Button).text
+        var oldDigit = numberWrittenTextView.text.toString()
+        var addDigitToEnd = oldDigit + newDigigt
+        var newNumber = addDigitToEnd
+        numberWrittenTextView.text = newNumber
+
     }
-    private fun initAllElemnt(){
+     fun clickedToButtonOfNumberSystem(buttonOfNumberSystem : View){
+        when((buttonOfNumberSystem as Button).text.toString()){
+            "HEX" -> {enabled(listOfHexButton)}
+            "DEC" -> {
+                disabled(listOfHexButton)
+                enabled(listOfDecimalButton)
+            }
+            "OCT" -> {
+                disabled(listOfHexButton)
+                enabled(listOfOctalButton)
+            }
+            "BIN" -> {
+                disabled(listOfHexButton)
+                enabled(lisrOfBinaryButton)
+            }
+        }
+    }
+    private fun initialAllElemntOfCalculator(){
            zeroButton = findViewById(R.id.ZeroButton)
            oneButton  = findViewById(R.id.OneButton)
            twoButton  = findViewById(R.id.TwoButton)
@@ -68,7 +98,7 @@ class MainActivity : AppCompatActivity() {
            C_Button  = findViewById(R.id.CButton)
            D_Button   = findViewById(R.id.DButton)
            E_Button   = findViewById(R.id.EButton)
-           F_Button    = findViewById(R.id.FiveButton)
+           F_Button    = findViewById(R.id.FButton)
            dotButton  = findViewById(R.id.DotButton)
            hexButton  = findViewById(R.id.appCompatButton2)
            decButton = findViewById(R.id.appCompatButton)
@@ -77,8 +107,50 @@ class MainActivity : AppCompatActivity() {
            equalButton = findViewById(R.id.EqualButton)
            removeButton = findViewById(R.id.appCompatButton5)
            clearButton   = findViewById(R.id.DELButton)
-           numberWrittenTextView = findViewById(R.id.numberResult)
-           resultNumberTextView  = findViewById(R.id.IDtextDefaultOfNumberInputInTop)
+           numberWrittenTextView = findViewById(R.id.IDtextDefaultOfNumberInputInTop)
+           resultNumberTextView  = findViewById(R.id.numberResult)
+
+        listOfHexButton = listOf(
+            zeroButton,
+            oneButton,
+            twoButton,
+            threeButton,
+            fourButton,
+            fiveButton,
+            sixButton,
+            sevenButton,
+            eightButton,
+            nineButton,
+            A_Button,
+            B_Button,
+            C_Button,
+            D_Button,
+            E_Button,
+            F_Button
+        )
+        listOfDecimalButton  = listOf(
+            zeroButton,
+            oneButton,
+            twoButton,
+            threeButton,
+            fourButton,
+            fiveButton,
+            sixButton,
+            sevenButton,
+            eightButton,
+            nineButton
+        )
+        listOfOctalButton = listOf(
+            zeroButton,
+            oneButton,
+            twoButton,
+            threeButton,
+            fourButton,
+            fiveButton,
+            sixButton,
+            sevenButton
+        )
+        lisrOfBinaryButton= listOf(zeroButton,oneButton)
     }
 
 
